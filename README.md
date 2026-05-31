@@ -1,7 +1,7 @@
 # 🚀 មគ្គុទ្ទេសក៍ C++ តាំងពីដំបូងដល់កម្រិតខ្ពស់
 # C++ Complete Guide — Beginner to Advanced
 
-> **ភាសា:** ខ្មែរ + English | **កម្រិត:** Beginner → Advanced | **ស្ថានភាព:** ✅ Active
+> **ភាសា:** ខ្មែរ + English | **កម្រិត:** Beginner → Advanced 
 
 ---
 
