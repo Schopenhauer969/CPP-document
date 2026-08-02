@@ -1,179 +1,251 @@
-# 🚀 មគ្គុទ្ទេសក៍ C++ តាំងពីដំបូងដល់កម្រិតខ្ពស់
-# C++ Complete Guide — Beginner to Advanced
+# ➕ C++ — Complete Guide (Beginner to Advanced)
 
-> **ភាសា:** ខ្មែរ + English | **កម្រិត:** Beginner → Advanced 
-
----
-
-## 📋 តារាងមាតិកា / Table of Contents
-
-- [1. ការណែនាំ / Introduction](#1-ការណែនាំ--introduction)
-- [2. មូលដ្ឋាន / Basics](#2-មូលដ្ឋាន--basics)
-- [3. អថេរ និង ប្រភេទទិន្នន័យ / Variables & Data Types](#3-អថេរ-និង-ប្រភេទទិន្នន័យ--variables--data-types)
-- [4. លក្ខខណ្ឌ / Conditionals](#4-លក្ខខណ្ឌ--conditionals)
-- [5. រង្វិលជុំ / Loops](#5-រង្វិលជុំ--loops)
-- [6. អនុគមន៍ / Functions](#6-អនុគមន៍--functions)
-- [7. អារេ និង Vector / Arrays & Vectors](#7-អារេ-និង-vector--arrays--vectors)
-- [8. Pointer និង Reference](#8-pointer-និង-reference)
-- [9. Class និង Object (OOP)](#9-class-និង-object-oop)
-- [10. Inheritance និង Polymorphism](#10-inheritance-និង-polymorphism)
-- [11. Template](#11-template)
-- [12. Exception Handling](#12-exception-handling)
-- [13. STL (Standard Template Library)](#13-stl-standard-template-library)
-- [14. Modern C++ (C++11/14/17/20)](#14-modern-c-c111417-20)
+> A complete, hands-on guide to C++ — from your first program to OOP, templates, the STL, and modern memory management used in real production code.
 
 ---
 
-## 1. ការណែនាំ / Introduction
+## 📚 Table of Contents
 
-> **ខ្មែរ:** C++ គឺជាភាសាកម្មវិធីដែលមានល្បឿនលឿន និងអាចគ្រប់គ្រងធនធានបានដោយផ្ទាល់។ វាត្រូវបានប្រើក្នុង game engines, operating systems, embedded systems, និង high-performance applications។
+1. [Introduction](#1-introduction)
+2. [Prerequisites & Setup](#2-prerequisites--setup)
+3. [Your First C++ Program](#3-your-first-c-program)
+4. [Variables & Data Types](#4-variables--data-types)
+5. [Operators](#5-operators)
+6. [Control Flow](#6-control-flow)
+7. [Arrays & Vectors](#7-arrays--vectors)
+8. [Strings](#8-strings)
+9. [Functions](#9-functions)
+10. [References & Pointers](#10-references--pointers)
+11. [OOP: Classes & Objects](#11-oop-classes--objects)
+12. [Inheritance & Polymorphism](#12-inheritance--polymorphism)
+13. [Operator Overloading](#13-operator-overloading)
+14. [Templates (Generic Programming)](#14-templates-generic-programming)
+15. [The Standard Template Library (STL)](#15-the-standard-template-library-stl)
+16. [Exception Handling](#16-exception-handling)
+17. [Smart Pointers & Memory Management](#17-smart-pointers--memory-management)
+18. [File I/O](#18-file-io)
+19. [Lambda Expressions](#19-lambda-expressions)
+20. [Best Practices](#20-best-practices)
+21. [Full Example Project](#21-full-example-project)
+22. [Resources](#22-resources)
 
-> **English:** C++ is a powerful, compiled language with direct hardware control. It's used in games, OS development, embedded systems, and performance-critical software.
+---
 
-### ការដំឡើង / Setup
+## 1. Introduction
+
+C++ is a compiled, statically-typed, multi-paradigm language built as an extension of C, adding object-oriented, generic, and functional programming features while keeping C's low-level performance and control.
+
+**Key facts:**
+- Compiles directly to machine code — extremely fast
+- Supports procedural, object-oriented, and generic programming
+- Manual and automatic (smart pointer) memory management options
+- Powers game engines, browsers, operating systems, and high-frequency trading systems
+- Current standard: **C++20** (C++23 emerging)
+
+---
+
+## 2. Prerequisites & Setup
+
+- Basic understanding of C is helpful but not required
+- A C++ compiler: **GCC (g++)**, **Clang**, or **MSVC**
+- A code editor: **VS Code**, **CLion**
 
 ```bash
-# Linux/macOS
-sudo apt install g++        # Ubuntu/Debian
-brew install gcc            # macOS
+# Verify installation
+g++ --version
+```
 
-# Windows → Install MinGW or Visual Studio
+**Compiling and running a C++ program:**
 
-# ការចងក្រង / Compile & Run
-g++ -std=c++17 -o program main.cpp
-./program
+```bash
+# Compile hello.cpp into an executable, using the C++20 standard
+g++ -std=c++20 hello.cpp -o hello
+
+# Run it
+./hello        # Linux/macOS
+hello.exe      # Windows
 ```
 
 ---
 
-## 2. មូលដ្ឋាន / Basics
-
-> **ខ្មែរ:** កម្មវិធី C++ គ្រប់ទាំងអស់ចាប់ផ្ដើមពី `main()` ។ `#include` គឺជាការដាក់បញ្ចូល library ។ `cout` ប្រើសម្រាប់បង្ហាញអត្ថបទ។
+## 3. Your First C++ Program
 
 ```cpp
-#include <iostream>   // បញ្ចូល library សម្រាប់ input/output
-using namespace std;  // ប្រើ std namespace ដើម្បីសង្ខេបកូដ
+// hello.cpp
+#include <iostream>
 
 int main() {
-    // បង្ហាញអត្ថបទ / Print text
-    cout << "Hello, World!" << endl;
-
-    // ទទួលការបញ្ចូលពី user / Get user input
-    string name;
-    cout << "Enter your name: ";
-    cin >> name;
-    cout << "Hello, " << name << "!" << endl;
-
-    return 0; // 0 = program ran successfully
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
 }
 ```
 
-**លទ្ធផល / Output:**
-```
-Hello, World!
-Enter your name: Dara
-Hello, Dara!
+**Breaking it down:**
+
+| Part | Meaning |
+|---|---|
+| `#include <iostream>` | Includes input/output stream support |
+| `std::cout` | The standard output stream (console) |
+| `<<` | The "insertion operator" — sends data into the stream |
+| `std::endl` | Inserts a newline and flushes the output buffer |
+| `return 0;` | Signals successful completion |
+
+**Avoiding `std::` repetition:**
+
+```cpp
+#include <iostream>
+using namespace std; // Brings all std:: names into scope (use carefully in large projects)
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
 ```
 
 ---
 
-## 3. អថេរ និង ប្រភេទទិន្នន័យ / Variables & Data Types
-
-> **ខ្មែរ:** អថេរ (Variable) គឺជាប្រអប់ដែលយើងប្រើដើម្បីរក្សាទុកទិន្នន័យ។ ប្រភេទទិន្នន័យ (Data Type) ប្រាប់ Computer ថាទិន្នន័យមានប្រភេទអ្វី។
+## 4. Variables & Data Types
 
 ```cpp
 #include <iostream>
-#include <string>
-using namespace std;
 
 int main() {
-    // ———— ប្រភេទចំនួនគត់ / Integer Types ————
-    int age       = 25;          // ចំនួនគត់ (-2B to +2B)
-    short small   = 100;         // ចំនួនតូច (-32768 to 32767)
-    long big      = 1000000L;    // ចំនួនធំ
-    long long huge = 9999999999LL; // ចំនួនធំណាស់
+    // Basic data types
+    int age = 25;
+    double price = 19.99;
+    float temperature = 36.6f;
+    char grade = 'A';
+    bool isActive = true;       // C++ has a real boolean type, unlike C
+    std::string name = "Sophea"; // Requires #include <string>
 
-    // ———— ចំនួនទសភាគ / Floating Point ————
-    float  price  = 9.99f;       // ទសភាគ (7 digits precision)
-    double pi     = 3.14159265;  // ទសភាគ (15 digits precision)
+    // Constants
+    const double PI = 3.14159;
 
-    // ———— តួអក្សរ / Characters ————
-    char   grade  = 'A';         // តួអក្សរ 1  តួ
-    string name   = "Sophea";    // ស្ទ្រីង (ពាក្យ/ប្រយោគ)
+    // Type inference with "auto" (C++11+) — compiler deduces the type
+    auto count = 10;        // Inferred as int
+    auto pi = 3.14;          // Inferred as double
 
-    // ———— Boolean (true/false) ————
-    bool isPassed = true;        // true ឬ false
+    // Printing values
+    std::cout << "Name: " << name << ", Age: " << age << std::endl;
+    std::cout << "Pi: " << pi << std::endl;
 
-    // ———— auto (C++11) — ទុក compiler ជ្រើសប្រភេទ ————
-    auto score    = 98.5;        // compiler ដឹងថា double
+    // sizeof — check type sizes
+    std::cout << "Size of int: " << sizeof(int) << " bytes" << std::endl;
 
-    // ———— Constants — តម្លៃដែលមិនអាចផ្លាស់ប្ដូរ ————
-    const int MAX_SIZE = 100;    // ✅ ត្រូវ
-    // MAX_SIZE = 200;           // ❌ Error! const មិនអាចផ្លាស់ប្ដូរ
-
-    cout << "Name: "    << name     << endl;
-    cout << "Age: "     << age      << endl;
-    cout << "Price: $"  << price    << endl;
-    cout << "Passed: "  << boolalpha << isPassed << endl;
+    // Type casting
+    double d = 9.78;
+    int i = static_cast<int>(d); // Modern, explicit cast (preferred over C-style casts)
+    std::cout << i << std::endl; // 9
 
     return 0;
 }
 ```
 
-### ទំហំប្រភេទទិន្នន័យ / Data Type Sizes
-
-| ប្រភេទ / Type | ទំហំ / Size | ជួរ / Range |
-|---|---|---|
-| `bool` | 1 byte | true / false |
-| `char` | 1 byte | -128 to 127 |
-| `int` | 4 bytes | ±2,147,483,647 |
-| `float` | 4 bytes | ±3.4 × 10³⁸ |
-| `double` | 8 bytes | ±1.7 × 10³⁰⁸ |
-| `long long` | 8 bytes | ±9.2 × 10¹⁸ |
+```cpp
+#include <string>
+// #include <string> is required to use std::string
+```
 
 ---
 
-## 4. លក្ខខណ្ឌ / Conditionals
-
-> **ខ្មែរ:** ការធ្វើការសម្រេចចិត្ត (Decision Making) — `if`, `else if`, `else` ប្រើដើម្បីកំណត់ល័ក្ខខ័ណ្ឌ។ `switch` ប្រើជំនួស `if-else` ច្រើន។
+## 5. Operators
 
 ```cpp
 #include <iostream>
-using namespace std;
+
+int main() {
+    // Arithmetic
+    std::cout << 10 + 5 << std::endl;   // 15
+    std::cout << 10 / 3 << std::endl;    // 3 (integer division truncates)
+    std::cout << 10.0 / 3 << std::endl;  // 3.33333
+    std::cout << 10 % 3 << std::endl;    // 1
+
+    // Comparison
+    std::cout << (5 == 5) << std::endl;  // 1 (true)
+    std::cout << (5 != 3) << std::endl;  // 1
+
+    // Logical
+    bool a = true, b = false;
+    std::cout << (a && b) << std::endl;  // 0
+    std::cout << (a || b) << std::endl;  // 1
+
+    // Increment/decrement
+    int count = 0;
+    count++;
+    ++count;
+    std::cout << count << std::endl; // 2
+
+    // String concatenation (works naturally with std::string, unlike C)
+    std::string firstName = "Sophea";
+    std::string lastName = "Chan";
+    std::string fullName = firstName + " " + lastName;
+    std::cout << fullName << std::endl; // "Sophea Chan"
+
+    return 0;
+}
+```
+
+---
+
+## 6. Control Flow
+
+```cpp
+#include <iostream>
 
 int main() {
     int score = 85;
 
-    // ———— if / else if / else ————
+    // if / else if / else
     if (score >= 90) {
-        cout << "Grade: A (ល្អឥតខ្ចោះ)" << endl;
+        std::cout << "Grade: A" << std::endl;
     } else if (score >= 80) {
-        cout << "Grade: B (ល្អ)" << endl;
-    } else if (score >= 70) {
-        cout << "Grade: C (មធ្យម)" << endl;
+        std::cout << "Grade: B" << std::endl;
     } else {
-        cout << "Grade: F (ធ្លាក់)" << endl;
+        std::cout << "Grade: C or below" << std::endl;
     }
 
-    // ———— Ternary Operator (if-else តែ 1 បន្ទាត់) ————
-    string result = (score >= 50) ? "Pass ✅" : "Fail ❌";
-    cout << result << endl;
+    // Ternary operator
+    std::string status = (score >= 60) ? "Pass" : "Fail";
 
-    // ———— switch statement ————
-    char grade = 'B';
-    switch (grade) {
-        case 'A':
-            cout << "Excellent!" << endl;
+    // switch statement
+    int day = 3;
+    switch (day) {
+        case 1:
+            std::cout << "Monday" << std::endl;
             break;
-        case 'B':
-            cout << "Good job!" << endl;  // ← នឹងប្រតិបត្តិ
-            break;
-        case 'C':
-            cout << "Average" << endl;
+        case 2:
+            std::cout << "Tuesday" << std::endl;
             break;
         default:
-            cout << "Invalid grade" << endl;
+            std::cout << "Another day" << std::endl;
+            break;
     }
+
+    // for loop
+    for (int i = 0; i < 5; i++) {
+        std::cout << "Iteration " << i << std::endl;
+    }
+
+    // Range-based for loop (C++11+, works with arrays and containers)
+    int numbers[] = {1, 2, 3, 4, 5};
+    for (int num : numbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
+    // while loop
+    int n = 0;
+    while (n < 3) {
+        std::cout << "n = " << n << std::endl;
+        n++;
+    }
+
+    // do-while loop
+    int m = 0;
+    do {
+        std::cout << "m = " << m << std::endl;
+        m++;
+    } while (m < 3);
 
     return 0;
 }
@@ -181,58 +253,55 @@ int main() {
 
 ---
 
-## 5. រង្វិលជុំ / Loops
-
-> **ខ្មែរ:** រង្វិលជុំ (Loop) ប្រើដើម្បីធ្វើការរ ซ้ำ ● `for` — ប្រើពេលដឹងចំនួនដង ● `while` — ប្រើពេលមិនដឹងចំនួន ● `do-while` — ប្រតិបត្តិយ៉ាងហោចណាស់ 1 ដង
+## 7. Arrays & Vectors
 
 ```cpp
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <array>
 
 int main() {
+    // C-style fixed-size array (size fixed at compile time, no bounds checking)
+    int numbers[5] = {10, 20, 30, 40, 50};
+    std::cout << numbers[0] << std::endl; // 10
 
-    // ———— for loop ————
-    // ខ្មែរ: រង្វិលជុំ for ប្រើសម្រាប់ loop ចំនួនដងជាក់លាក់
-    cout << "=== for loop ===" << endl;
-    for (int i = 1; i <= 5; i++) {
-        cout << "i = " << i << endl;
+    // std::array — a safer, modern fixed-size array (C++11+)
+    std::array<int, 5> fixedArr = {1, 2, 3, 4, 5};
+    std::cout << fixedArr.size() << std::endl; // 5
+
+    // std::vector — dynamic, resizable array (the most commonly used container)
+    std::vector<int> scores = {90, 85, 78};
+
+    scores.push_back(95);           // Add to the end
+    scores.pop_back();              // Remove the last element
+    std::cout << scores[0] << std::endl;       // Access by index
+    std::cout << scores.at(1) << std::endl;    // Access with bounds checking (throws if out of range)
+    std::cout << scores.size() << std::endl;    // Number of elements
+
+    // Looping through a vector
+    for (int score : scores) {
+        std::cout << score << " ";
+    }
+    std::cout << std::endl;
+
+    // Iterating with an index
+    for (size_t i = 0; i < scores.size(); i++) {
+        std::cout << "Score " << i << ": " << scores[i] << std::endl;
     }
 
-    // ———— while loop ————
-    // ខ្មែរ: while loop ប្រតិបត្តិតែពេល condition = true
-    cout << "\n=== while loop ===" << endl;
-    int count = 0;
-    while (count < 3) {
-        cout << "count = " << count << endl;
-        count++;
-    }
+    // 2D vector
+    std::vector<std::vector<int>> matrix = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+    std::cout << matrix[1][2] << std::endl; // 6
 
-    // ———— do-while loop ————
-    // ខ្មែរ: do-while loop ប្រតិបត្តិ 1 ដងជានិច្ច មុននឹងពិនិត្យ condition
-    cout << "\n=== do-while loop ===" << endl;
-    int num = 10;
-    do {
-        cout << "num = " << num << endl;
-        num++;
-    } while (num < 10); // condition false ប៉ុន្តែ ប្រតិបត្តិ 1 ដងហើយ
-
-    // ———— Range-based for (C++11) ————
-    // ខ្មែរ: ស្ងួនងាយដើម្បី loop តាម array ឬ vector
-    cout << "\n=== range-based for ===" << endl;
-    int nums[] = {10, 20, 30, 40, 50};
-    for (int n : nums) {
-        cout << n << " ";
-    }
-    cout << endl;
-
-    // ———— break & continue ————
-    cout << "\n=== break & continue ===" << endl;
-    for (int i = 1; i <= 10; i++) {
-        if (i == 4) continue;  // រំលង 4 / Skip 4
-        if (i == 7) break;     // ឈប់នៅ 7 / Stop at 7
-        cout << i << " ";
-    }
-    // Output: 1 2 3 5 6
+    // Common vector operations
+    std::vector<int> nums = {5, 3, 8, 1, 9};
+    nums.insert(nums.begin() + 1, 100); // Insert 100 at index 1
+    nums.erase(nums.begin());             // Remove the first element
+    nums.clear();                          // Remove all elements
+    std::cout << "Empty: " << nums.empty() << std::endl;
 
     return 0;
 }
@@ -240,71 +309,117 @@ int main() {
 
 ---
 
-## 6. អនុគមន៍ / Functions
-
-> **ខ្មែរ:** អនុគមន៍ (Function) ប្រើដើម្បីដាក់ប្រមូលកូដដែលធ្វើការដូចគ្នា ហើយអាចហៅប្រើម្ដងទៀតបាន។ នេះជួយបន្ថយការសរសេរកូដម្ដងទៀតទៀតតោ (DRY - Don't Repeat Yourself)។
+## 8. Strings
 
 ```cpp
 #include <iostream>
-using namespace std;
+#include <string>
+#include <algorithm>
 
-// ———— Function Declaration & Definition ————
-// ទម្រង់: return_type functionName(parameters) { body }
+int main() {
+    std::string message = "  Hello, C++ World!  ";
 
-// អនុគមន៍ without return value (void)
-void greet(string name) {
-    cout << "Hello, " << name << "! 👋" << endl;
+    std::cout << message.length() << std::endl;         // Length (including spaces)
+    std::cout << message.substr(2, 5) << std::endl;      // "Hello" (start, length)
+    std::cout << message.find("C++") << std::endl;        // Position of substring
+
+    // Modifying strings
+    std::string name = "sophea";
+    std::transform(name.begin(), name.end(), name.begin(), ::toupper);
+    std::cout << name << std::endl; // "SOPHEA"
+
+    // Concatenation
+    std::string greeting = "Hello, " + name + "!";
+    std::cout << greeting << std::endl;
+
+    // Comparing strings (works naturally with ==, unlike C's char arrays)
+    std::string a = "hello";
+    std::string b = "hello";
+    std::cout << (a == b) << std::endl; // 1 (true)
+
+    // Converting between strings and numbers
+    std::string numStr = "42";
+    int num = std::stoi(numStr);          // string to int
+    std::string backToStr = std::to_string(num); // int to string
+
+    // Iterating over characters
+    for (char c : "Sophea") {
+        std::cout << c;
+    }
+    std::cout << std::endl;
+
+    // Splitting a string manually (C++ has no built-in split before C++20 ranges)
+    std::string csv = "apple,banana,cherry";
+    std::vector<std::string> parts;
+    std::stringstream ss(csv); // Requires #include <sstream>
+    std::string item;
+    while (std::getline(ss, item, ',')) {
+        parts.push_back(item);
+    }
+    for (const auto& part : parts) {
+        std::cout << part << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
 }
+```
 
-// អនុគមន៍ with return value
+---
+
+## 9. Functions
+
+```cpp
+#include <iostream>
+
+// Basic function
 int add(int a, int b) {
     return a + b;
 }
 
-// Default parameters — parameter ដែលមានតម្លៃ default
-double power(double base, int exp = 2) {
-    double result = 1;
-    for (int i = 0; i < exp; i++) result *= base;
-    return result;
+// Default parameters
+std::string greet(std::string name, std::string greeting = "Hello") {
+    return greeting + ", " + name + "!";
 }
 
-// Function Overloading — ឈ្មោះដូចគ្នា ប៉ុន្តែ parameter ខុសគ្នា
-int multiply(int a, int b)       { return a * b; }
-double multiply(double a, double b) { return a * b; }
-
-// Pass by Reference — ប្ដូរតម្លៃ variable ដើម
-void doubleValue(int& x) {
-    x *= 2;  // ប្ដូរ variable ដើម
+// Function overloading — same name, different parameter types
+int multiply(int a, int b) {
+    return a * b;
+}
+double multiply(double a, double b) {
+    return a * b;
 }
 
-// Pass by Pointer
-void tripleValue(int* x) {
-    *x *= 3;
+// Pass by reference (modifies the original variable, avoids copying)
+void increment(int &value) {
+    value++;
 }
 
-// Recursive Function — អនុគមន៍ហៅខ្លួនឯង
+// Pass by const reference (avoids copying large objects, but prevents modification)
+void printVector(const std::vector<int> &vec) {
+    for (int v : vec) {
+        std::cout << v << " ";
+    }
+    std::cout << std::endl;
+}
+
+// Recursive function
 int factorial(int n) {
-    if (n <= 1) return 1;         // Base case
-    return n * factorial(n - 1); // Recursive case
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
 }
 
 int main() {
-    greet("Sreymom");                      // Hello, Sreymom! 👋
-    cout << add(3, 7) << endl;             // 10
-    cout << power(3.0) << endl;            // 9 (default exp=2)
-    cout << power(2.0, 10) << endl;        // 1024
+    std::cout << add(3, 4) << std::endl;              // 7
+    std::cout << greet("Sophea") << std::endl;          // "Hello, Sophea!"
+    std::cout << multiply(3, 4) << std::endl;            // 12 (int version)
+    std::cout << multiply(3.5, 2.0) << std::endl;         // 7.0 (double version)
 
-    cout << multiply(4, 5) << endl;        // 20 (int version)
-    cout << multiply(2.5, 3.0) << endl;    // 7.5 (double version)
+    int x = 5;
+    increment(x);
+    std::cout << x << std::endl; // 6
 
-    int val = 5;
-    doubleValue(val);
-    cout << val << endl;                   // 10 (ត្រូវបានប្ដូរ)
-
-    tripleValue(&val);
-    cout << val << endl;                   // 30
-
-    cout << factorial(5) << endl;          // 120 (5! = 5×4×3×2×1)
+    std::cout << factorial(5) << std::endl; // 120
 
     return 0;
 }
@@ -312,65 +427,38 @@ int main() {
 
 ---
 
-## 7. អារេ និង Vector / Arrays & Vectors
-
-> **ខ្មែរ:** Array ជាបញ្ជីទិន្នន័យដែលមានប្រភេទដូចគ្នា ហើយមានទំហំថេរ។ Vector ដូច Array ដែរ ប៉ុន្តែអាចផ្លាស់ប្ដូរទំហំបាន (Dynamic)។
+## 10. References & Pointers
 
 ```cpp
 #include <iostream>
-#include <vector>
-#include <algorithm>  // sort, find
-using namespace std;
 
 int main() {
+    // --- References --- (an alias for an existing variable, cannot be null or reassigned)
+    int age = 25;
+    int &ageRef = age; // ageRef is now another name for age
 
-    // ———— Static Array ————
-    // ខ្មែរ: Array ដែលទំហំ fixed — មិនអាចបន្ថែម/ដកបាន
-    int scores[5] = {95, 82, 78, 91, 68};
+    ageRef = 26;
+    std::cout << age << std::endl; // 26 — modifying the reference modifies the original
 
-    // ចូលដំណើរការ element / Access elements
-    cout << scores[0] << endl;  // 95 (index ចាប់ពី 0)
-    cout << scores[4] << endl;  // 68 (element ចុងក្រោយ)
+    // --- Pointers --- (store a memory address, can be null and reassigned)
+    int *agePtr = &age; // Points to the address of age
 
-    // Loop តាម Array
-    for (int i = 0; i < 5; i++) {
-        cout << scores[i] << " ";
+    std::cout << *agePtr << std::endl;    // 26 — dereference to get the value
+    std::cout << agePtr << std::endl;      // The memory address itself
+
+    *agePtr = 27;
+    std::cout << age << std::endl; // 27 — modifying through the pointer changes the original
+
+    // nullptr (C++11+) — the modern, type-safe null pointer (prefer over C's NULL)
+    int *emptyPtr = nullptr;
+    if (emptyPtr == nullptr) {
+        std::cout << "Pointer is null" << std::endl;
     }
-    cout << endl;
 
-    // ———— 2D Array (Matrix) ————
-    // ខ្មែរ: Array 2 ជ្រុង — ដូច Table
-    int matrix[2][3] = {
-        {1, 2, 3},   // row 0
-        {4, 5, 6}    // row 1
-    };
-    cout << matrix[1][2] << endl;  // 6 (row 1, col 2)
-
-    // ———— Vector (Dynamic Array) ————
-    // ខ្មែរ: Vector ដូច Array ប៉ុន្តែអាចបន្ថែម/ដក element ហើយ
-    vector<int> v = {10, 20, 30};
-
-    v.push_back(40);      // បន្ថែម 40 នៅចុង
-    v.push_back(50);
-    v.pop_back();         // ដក element ចុងក្រោយ (50)
-
-    cout << "Size: " << v.size() << endl;    // 4
-    cout << "First: " << v.front() << endl;  // 10
-    cout << "Last: " << v.back() << endl;    // 40
-
-    // Sort
-    sort(v.begin(), v.end());  // 10 20 30 40
-
-    // Range-based loop
-    for (int x : v) cout << x << " ";
-    cout << endl;
-
-    // Vector of strings
-    vector<string> names = {"Dara", "Sreymom", "Bopha"};
-    names.insert(names.begin() + 1, "Sokha");  // បញ្ចូល "Sokha" ទី 2
-
-    for (const string& n : names) cout << n << " ";
-    cout << endl;
+    // References vs pointers:
+    // - References must be initialized and can never be null or point elsewhere
+    // - Pointers can be reassigned, can be null, and support pointer arithmetic
+    // - Prefer references for function parameters when null isn't a valid case
 
     return 0;
 }
@@ -378,237 +466,134 @@ int main() {
 
 ---
 
-## 8. Pointer និង Reference
-
-> **ខ្មែរ:** Pointer ជា variable ដែលរក្សាទុក **address** (អាសយដ្ឋាន) របស់ variable ផ្សេង។ Reference ក៏ស្រដៀងដែរ ប៉ុន្តែងាយស្រួលប្រើជាង។ ពួកវាជួយក្នុងការគ្រប់គ្រង memory ដោយផ្ទាល់។
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-
-    // ———— Reference ————
-    // ខ្មែរ: Reference = ឈ្មោះ alias ថ្មីសម្រាប់ variable ដដែល
-    int x = 10;
-    int& ref = x;     // ref គឺ alias របស់ x
-
-    ref = 20;         // ប្ដូរ ref ក៏ប្ដូរ x ដែរ
-    cout << x << endl;  // 20
-
-    // ———— Pointer ————
-    // ខ្មែរ: & = ទទួល address   * = ចូលដំណើរការ value ពី address
-    int y = 42;
-    int* ptr = &y;    // ptr ទុក address របស់ y
-
-    cout << y     << endl;   // 42   (តម្លៃ y)
-    cout << &y    << endl;   // 0x...  (address ក្នុង memory)
-    cout << ptr   << endl;   // 0x...  (address ដែល ptr ទុក)
-    cout << *ptr  << endl;   // 42   (dereference — ចូលដំណើរការ value)
-
-    *ptr = 100;   // ប្ដូរ value តាមរយៈ pointer
-    cout << y << endl;  // 100
-
-    // ———— Dynamic Memory Allocation ————
-    // ខ្មែរ: new = ស្នើ memory   delete = ប្ដូរ memory វិញ
-    int* dynArr = new int[5];    // allocate array ក្នុង heap
-
-    for (int i = 0; i < 5; i++) dynArr[i] = i * 10;
-    for (int i = 0; i < 5; i++) cout << dynArr[i] << " ";
-    cout << endl;  // 0 10 20 30 40
-
-    delete[] dynArr;  // ⚠️ MUST free memory — បើមិនដូច្នេះ memory leak!
-
-    // ———— Null Pointer ————
-    int* nullPtr = nullptr;   // ✅ C++11 — គ្មាន address
-    if (nullPtr == nullptr) {
-        cout << "Pointer is null (safe)" << endl;
-    }
-
-    // ———— Smart Pointer (C++11) — ល្អបំផុតដើម្បីជៀសវាងការភ្លេច delete ————
-    // (ត្រូវ #include <memory>)
-    // unique_ptr<int> smart = make_unique<int>(99);
-    // cout << *smart << endl;  // 99
-    // auto-deleted when out of scope ✅
-
-    return 0;
-}
-```
-
----
-
-## 9. Class និង Object (OOP)
-
-> **ខ្មែរ:** OOP (Object-Oriented Programming) គឺជារចនាបថការសរសេរកូដ ដែលប្រើ Class ជា "ប្លង់" (Blueprint) ហើយ Object ជា "ផលិតផល" (Instance)។ OOP ជួយរៀបចំកូដ ធ្វើការ reuse ហើយ maintain ងាយ។
+## 11. OOP: Classes & Objects
 
 ```cpp
 #include <iostream>
 #include <string>
-using namespace std;
 
-class BankAccount {
-private:  // ❌ មិនអាចចូលដំណើរការពីខាងក្រៅ (encapsulation)
-    string owner;
-    double balance;
-    int    accountNumber;
+class Person {
+private:
+    std::string name; // Private — only accessible within the class
+    int age;
 
-public:   // ✅ អាចចូលដំណើរការពីខាងក្រៅ
-    // Constructor — ហៅដោយស្វ័យប្រវត្តិពេល create object
-    BankAccount(string name, double initialBalance, int accNum)
-        : owner(name), balance(initialBalance), accountNumber(accNum) {
-        cout << "Account created for " << owner << endl;
+public:
+    // Constructor
+    Person(std::string name, int age) : name(name), age(age) {
+        // The "name(name), age(age)" part is a member initializer list — preferred over
+        // assigning inside the body for performance and correctness
     }
 
-    // Destructor — ហៅពេល object ត្រូវបានលុប
-    ~BankAccount() {
-        cout << "Account closed for " << owner << endl;
+    // Destructor — called automatically when the object is destroyed
+    ~Person() {
+        std::cout << name << " is being destroyed." << std::endl;
     }
 
-    // Getter (accessor)
-    string getOwner()   const { return owner; }
-    double getBalance() const { return balance; }
-    int    getAccNum()  const { return accountNumber; }
+    // Public methods
+    std::string introduce() const { // "const" means this method doesn't modify the object
+        return "Hi, I'm " + name + " and I'm " + std::to_string(age) + " years old.";
+    }
 
-    // Methods
-    void deposit(double amount) {
-        if (amount <= 0) {
-            cout << "Invalid amount!" << endl;
-            return;
+    // Getters and setters
+    std::string getName() const { return name; }
+    int getAge() const { return age; }
+
+    void setAge(int newAge) {
+        if (newAge < 0) {
+            throw std::invalid_argument("Age cannot be negative");
         }
-        balance += amount;
-        cout << "Deposited $" << amount << ". New balance: $" << balance << endl;
-    }
-
-    bool withdraw(double amount) {
-        if (amount > balance) {
-            cout << "Insufficient funds!" << endl;
-            return false;
-        }
-        balance -= amount;
-        cout << "Withdrew $" << amount << ". New balance: $" << balance << endl;
-        return true;
-    }
-
-    void printInfo() const {
-        cout << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" << endl;
-        cout << "Account #" << accountNumber          << endl;
-        cout << "Owner:   " << owner                  << endl;
-        cout << "Balance: $" << balance               << endl;
-        cout << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" << endl;
+        age = newAge;
     }
 };
 
 int main() {
-    // Create objects
-    BankAccount acc1("Dara Sok",   1000.0, 10001);
-    BankAccount acc2("Sophea Kim",  500.0, 10002);
+    Person p1("Sophea", 25); // Stack-allocated object
+    std::cout << p1.introduce() << std::endl;
 
-    acc1.deposit(250.0);
-    acc1.withdraw(100.0);
-    acc1.printInfo();
+    p1.setAge(26);
+    std::cout << p1.getAge() << std::endl; // 26
 
-    acc2.deposit(1000.0);
-    acc2.withdraw(2000.0);  // Insufficient funds!
+    // Creating an object on the heap (requires manual cleanup, or better: smart pointers — see Section 17)
+    Person *p2 = new Person("Dara", 30);
+    std::cout << p2->introduce() << std::endl; // Use -> for pointer member access
+    delete p2; // Must manually delete heap-allocated objects
 
     return 0;
-}
+} // p1 is automatically destroyed here (destructor runs)
 ```
+
+**Access specifiers:**
+
+| Specifier | Accessible from |
+|---|---|
+| `public` | Anywhere |
+| `protected` | The class itself and derived (subclass) classes |
+| `private` | Only the class itself |
 
 ---
 
-## 10. Inheritance និង Polymorphism
-
-> **ខ្មែរ:** **Inheritance** អនុញ្ញាតឲ្យ Class មួយ (Child) ទទួលរូបសម្បត្តិ (property) និង method ពី Class មួយទៀត (Parent)។ **Polymorphism** ធ្វើឲ្យ method ដូចគ្នា មានប្រតិបត្តិការខុសគ្នាតាម object ប្រភេទ។
+## 12. Inheritance & Polymorphism
 
 ```cpp
 #include <iostream>
 #include <string>
-#include <vector>
-#include <memory>
-using namespace std;
 
-// ———— Base Class (Parent) ————
 class Animal {
 protected:
-    string name;
-    int    age;
+    std::string name;
 
 public:
-    Animal(string n, int a) : name(n), age(a) {}
+    Animal(std::string name) : name(name) {}
 
-    // virtual — អនុញ្ញាតឲ្យ child class override
-    virtual void speak() const {
-        cout << name << " makes a sound." << endl;
+    // virtual enables polymorphism — allows derived classes to override this method
+    virtual std::string makeSound() const {
+        return name + " makes a sound";
     }
 
-    // Pure virtual — MUST be overridden in child class
-    virtual string getType() const = 0;  // Abstract method
-
-    virtual void info() const {
-        cout << "[" << getType() << "] " << name << ", Age: " << age << endl;
-    }
-
-    virtual ~Animal() = default;  // Virtual destructor
+    virtual ~Animal() {} // Virtual destructor — important when using polymorphism with pointers
 };
 
-// ———— Child Classes (Derived) ————
-class Dog : public Animal {
-    string breed;
-public:
-    Dog(string n, int a, string b) : Animal(n, a), breed(b) {}
+class Dog : public Animal { // "public" inheritance — Dog IS-A Animal
+private:
+    std::string breed;
 
-    void speak() const override {  // override keyword = ប្រកាន់ safety
-        cout << name << " says: Woof! 🐶" << endl;
+public:
+    Dog(std::string name, std::string breed) : Animal(name), breed(breed) {}
+
+    // override (C++11+) — explicitly marks this as overriding a virtual method (safer, catches typos)
+    std::string makeSound() const override {
+        return name + " barks! (a " + breed + ")";
     }
 
-    string getType() const override { return "Dog"; }
-
-    void fetch() const {
-        cout << name << " fetches the ball! 🎾" << endl;
+    std::string fetch() const {
+        return name + " fetches the ball!";
     }
 };
 
 class Cat : public Animal {
 public:
-    Cat(string n, int a) : Animal(n, a) {}
+    Cat(std::string name) : Animal(name) {}
 
-    void speak() const override {
-        cout << name << " says: Meow! 🐱" << endl;
+    std::string makeSound() const override {
+        return name + " meows!";
     }
-
-    string getType() const override { return "Cat"; }
-};
-
-class Bird : public Animal {
-public:
-    Bird(string n, int a) : Animal(n, a) {}
-
-    void speak() const override {
-        cout << name << " says: Tweet! 🐦" << endl;
-    }
-
-    string getType() const override { return "Bird"; }
 };
 
 int main() {
-    // Polymorphism — vector of base class pointers
-    // ខ្មែរ: Animal* អាច point ទៅ Dog, Cat, Bird ណាក៏បាន
-    vector<unique_ptr<Animal>> zoo;
-    zoo.push_back(make_unique<Dog>("Buddy",  3, "Labrador"));
-    zoo.push_back(make_unique<Cat>("Mimi",   2));
-    zoo.push_back(make_unique<Bird>("Tweety", 1));
-    zoo.push_back(make_unique<Dog>("Rex",    5, "German Shepherd"));
+    Dog dog("Rex", "Golden Retriever");
+    std::cout << dog.makeSound() << std::endl; // "Rex barks! (a Golden Retriever)"
+    std::cout << dog.fetch() << std::endl;
 
-    cout << "=== Zoo Animals ===" << endl;
-    for (const auto& animal : zoo) {
-        animal->info();   // calls correct info()
-        animal->speak();  // calls correct speak() — Polymorphism!
-        cout << endl;
+    // Polymorphism — using base class pointers to hold derived objects
+    Animal *animals[3];
+    animals[0] = new Dog("Max", "Poodle");
+    animals[1] = new Cat("Whiskers");
+    animals[2] = new Animal("Generic Creature");
+
+    for (int i = 0; i < 3; i++) {
+        std::cout << animals[i]->makeSound() << std::endl; // Calls the correct overridden version
+        delete animals[i]; // Clean up heap memory
     }
-
-    // Downcasting — ប្ដូរ back ទៅ child type
-    Dog* dog = dynamic_cast<Dog*>(zoo[0].get());
-    if (dog) dog->fetch();  // Dog-specific method
 
     return 0;
 }
@@ -616,72 +601,97 @@ int main() {
 
 ---
 
-## 11. Template
-
-> **ខ្មែរ:** Template ជួយឲ្យអ្នកសរសេរ function ឬ class ម្ដង ហើយប្រើបានជាមួយ data type ណាក៏បាន (int, double, string...)។ នេះជួយជៀសវាង code duplication។
+## 13. Operator Overloading
 
 ```cpp
 #include <iostream>
-#include <vector>
-#include <string>
-using namespace std;
 
-// ———— Function Template ————
-// ខ្មែរ: T = placeholder សម្រាប់ type ណាក៏បាន
+class Vector2D {
+public:
+    double x, y;
+
+    Vector2D(double x = 0, double y = 0) : x(x), y(y) {}
+
+    // Overloading the + operator
+    Vector2D operator+(const Vector2D &other) const {
+        return Vector2D(x + other.x, y + other.y);
+    }
+
+    // Overloading the == operator
+    bool operator==(const Vector2D &other) const {
+        return x == other.x && y == other.y;
+    }
+
+    // Overloading << to allow printing with std::cout directly
+    friend std::ostream& operator<<(std::ostream &os, const Vector2D &v) {
+        os << "(" << v.x << ", " << v.y << ")";
+        return os;
+    }
+};
+
+int main() {
+    Vector2D v1(1, 2);
+    Vector2D v2(3, 4);
+
+    Vector2D sum = v1 + v2;         // Uses our overloaded operator+
+    std::cout << sum << std::endl;  // Uses our overloaded operator<<: "(4, 6)"
+
+    std::cout << (v1 == v2) << std::endl; // 0 (false)
+
+    return 0;
+}
+```
+
+---
+
+## 14. Templates (Generic Programming)
+
+```cpp
+#include <iostream>
+#include <string>
+
+// Function template — works with any type
 template <typename T>
-T maxValue(T a, T b) {
+T getMax(T a, T b) {
     return (a > b) ? a : b;
 }
 
-// Template ជាមួយ multiple types
-template <typename T, typename U>
-void printPair(T first, U second) {
-    cout << "(" << first << ", " << second << ")" << endl;
-}
-
-// ———— Class Template ————
+// Class template
 template <typename T>
-class Stack {
+class Box {
 private:
-    vector<T> data;
+    T content;
 
 public:
-    void push(const T& val) { data.push_back(val); }
+    Box(T content) : content(content) {}
 
-    T pop() {
-        if (empty()) throw runtime_error("Stack is empty!");
-        T val = data.back();
-        data.pop_back();
-        return val;
-    }
+    T getContent() const { return content; }
+    void setContent(T newContent) { content = newContent; }
+};
 
-    T top()     const { return data.back(); }
-    bool empty() const { return data.empty(); }
-    int  size()  const { return data.size(); }
+// Template with multiple type parameters
+template <typename T, typename U>
+class Pair {
+public:
+    T first;
+    U second;
+
+    Pair(T first, U second) : first(first), second(second) {}
 };
 
 int main() {
-    // Function template
-    cout << maxValue(3, 7)         << endl;   // 7 (int)
-    cout << maxValue(3.14, 2.71)   << endl;   // 3.14 (double)
-    cout << maxValue('a', 'z')     << endl;   // z (char)
+    std::cout << getMax(3, 7) << std::endl;         // 7 (T = int)
+    std::cout << getMax(3.5, 2.1) << std::endl;       // 3.5 (T = double)
+    std::cout << getMax<std::string>("apple", "banana") << std::endl; // "banana"
 
-    printPair(1, "Hello");
-    printPair(3.14, true);
+    Box<int> intBox(42);
+    std::cout << intBox.getContent() << std::endl; // 42
 
-    // Class template — Stack of int
-    Stack<int> intStack;
-    intStack.push(10);
-    intStack.push(20);
-    intStack.push(30);
-    cout << intStack.pop() << endl;   // 30
-    cout << intStack.top() << endl;   // 20
+    Box<std::string> stringBox("Hello");
+    std::cout << stringBox.getContent() << std::endl; // "Hello"
 
-    // Stack of string
-    Stack<string> strStack;
-    strStack.push("Hello");
-    strStack.push("World");
-    cout << strStack.pop() << endl;   // World
+    Pair<std::string, int> ageEntry("Sophea", 25);
+    std::cout << ageEntry.first << " is " << ageEntry.second << std::endl;
 
     return 0;
 }
@@ -689,166 +699,67 @@ int main() {
 
 ---
 
-## 12. Exception Handling
+## 15. The Standard Template Library (STL)
 
-> **ខ្មែរ:** Exception Handling ជាការចាប់ Error ដែលកើតឡើងពេល runtime ដើម្បីការពារ program ពីការ crash ។ `try` ទទួល code ដែលអាច error, `throw` ចោល error, `catch` ចាប់ error។
-
-```cpp
-#include <iostream>
-#include <stdexcept>
-#include <string>
-using namespace std;
-
-// Custom Exception Class
-class InsufficientFundsException : public exception {
-    double amount;
-public:
-    InsufficientFundsException(double a) : amount(a) {}
-    const char* what() const noexcept override {
-        return "Insufficient funds in account!";
-    }
-    double getAmount() const { return amount; }
-};
-
-// Function ដែល throw exception
-double divide(double a, double b) {
-    if (b == 0) {
-        throw invalid_argument("Cannot divide by zero! ❌");
-    }
-    return a / b;
-}
-
-void withdraw(double balance, double amount) {
-    if (amount > balance) {
-        throw InsufficientFundsException(amount - balance);
-    }
-    cout << "Withdrew $" << amount << " ✅" << endl;
-}
-
-int main() {
-
-    // ———— Basic Exception Handling ————
-    try {
-        cout << divide(10.0, 2.0)  << endl;  // ✅ 5
-        cout << divide(10.0, 0.0)  << endl;  // ❌ throws!
-    }
-    catch (const invalid_argument& e) {
-        cout << "Error: " << e.what() << endl;
-    }
-
-    // ———— Multiple catch blocks ————
-    try {
-        string s = "hello";
-        cout << s.at(100) << endl;   // throws out_of_range
-    }
-    catch (const out_of_range& e) {
-        cout << "Out of range: " << e.what() << endl;
-    }
-    catch (const exception& e) {
-        cout << "General error: " << e.what() << endl;
-    }
-    catch (...) {
-        cout << "Unknown error!" << endl;   // ចាប់ error ណាក៏បាន
-    }
-
-    // ———— Custom Exception ————
-    try {
-        withdraw(100.0, 500.0);
-    }
-    catch (const InsufficientFundsException& e) {
-        cout << "Error: " << e.what() << endl;
-        cout << "Short by: $" << e.getAmount() << endl;
-    }
-
-    cout << "Program continues normally ✅" << endl;
-
-    return 0;
-}
-```
-
----
-
-## 13. STL (Standard Template Library)
-
-> **ខ្មែរ:** STL ជាបណ្ណាល័យ C++ ដែលមានឧបករណ៍ (containers, algorithms) ដែល built-in ហើយ ready ប្រើ។ ជំនួសសរសេរ data structure ពីដំបូង ប្រើ STL ស្ទើរតែគ្រប់ case។
+The STL provides ready-made containers, iterators, and algorithms.
 
 ```cpp
 #include <iostream>
 #include <vector>
 #include <map>
 #include <set>
-#include <queue>
-#include <stack>
 #include <algorithm>
-#include <string>
-using namespace std;
+#include <numeric>
 
 int main() {
+    // --- vector --- (dynamic array, covered in Section 7)
+    std::vector<int> nums = {5, 3, 8, 1, 9};
 
-    // ———— map (Key-Value Store) ————
-    // ខ្មែរ: map ដូច dictionary — រក្សាទុក key: value
-    map<string, int> studentScore;
-    studentScore["Dara"]    = 95;
-    studentScore["Sophea"]  = 88;
-    studentScore["Bopha"]   = 72;
-    studentScore["Makara"]  = 91;
+    // --- map --- (key-value pairs, sorted by key)
+    std::map<std::string, int> ages;
+    ages["Sophea"] = 25;
+    ages["Dara"] = 30;
+    ages.insert({"Bopha", 22});
 
-    cout << "=== Scores ===" << endl;
-    for (const auto& [name, score] : studentScore) {  // C++17 structured binding
-        cout << name << ": " << score << endl;
+    for (const auto &pair : ages) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
     }
 
-    // ———— set (Unique elements, sorted) ————
-    // ខ្មែរ: set ស្រដៀង vector ប៉ុន្តែ auto-sorted និងគ្មាន duplicate
-    set<int> uniqueNums = {5, 2, 8, 2, 1, 5, 9};
-    cout << "\n=== Unique Sorted ===" << endl;
-    for (int n : uniqueNums) cout << n << " ";  // 1 2 5 8 9
-    cout << endl;
-
-    // ———— queue (FIFO) ————
-    // ខ្មែរ: queue = line រង់ចាំ — first in, first out
-    queue<string> line;
-    line.push("Customer 1");
-    line.push("Customer 2");
-    line.push("Customer 3");
-
-    cout << "\n=== Queue (FIFO) ===" << endl;
-    while (!line.empty()) {
-        cout << "Serving: " << line.front() << endl;
-        line.pop();
+    if (ages.find("Sophea") != ages.end()) {
+        std::cout << "Found Sophea!" << std::endl;
     }
 
-    // ———— stack (LIFO) ————
-    // ខ្មែរ: stack = ប៉ោង — last in, first out (ដូច undo operation)
-    stack<string> history;
-    history.push("Action 1");
-    history.push("Action 2");
-    history.push("Action 3");
+    // --- unordered_map --- (hash map, faster average lookup, no ordering)
+    // #include <unordered_map>
+    // std::unordered_map<std::string, int> fastLookup;
 
-    cout << "\n=== Stack (Undo) ===" << endl;
-    while (!history.empty()) {
-        cout << "Undoing: " << history.top() << endl;
-        history.pop();
+    // --- set --- (unique, sorted values)
+    std::set<int> uniqueNumbers = {5, 3, 5, 1, 3};
+    std::cout << uniqueNumbers.size() << std::endl; // 3 (duplicates removed)
+
+    // --- Algorithms --- (work with iterators, apply to many container types)
+    std::sort(nums.begin(), nums.end());               // Sort ascending
+    std::sort(nums.begin(), nums.end(), std::greater<int>()); // Sort descending
+
+    auto it = std::find(nums.begin(), nums.end(), 8);
+    if (it != nums.end()) {
+        std::cout << "Found 8 at position: " << (it - nums.begin()) << std::endl;
     }
 
-    // ———— Algorithms ————
-    // ខ្មែរ: STL algorithms ប្រើ iterator ដើម្បីធ្វើការជាមួយ containers
-    vector<int> v = {64, 25, 12, 22, 11};
+    int total = std::accumulate(nums.begin(), nums.end(), 0); // Sum all elements
+    std::cout << "Total: " << total << std::endl;
 
-    sort(v.begin(), v.end());                    // sort ascending
-    // sort(v.rbegin(), v.rend());               // sort descending
+    int count = std::count_if(nums.begin(), nums.end(), [](int n) { return n > 5; });
+    std::cout << "Count > 5: " << count << std::endl;
 
-    auto it = find(v.begin(), v.end(), 22);
-    if (it != v.end())
-        cout << "\nFound 22 at index: " << (it - v.begin()) << endl;
+    std::vector<int> doubled;
+    std::transform(nums.begin(), nums.end(), std::back_inserter(doubled),
+                    [](int n) { return n * 2; });
 
-    int total = 0;
-    for (int x : v) total += x;
-    // or: accumulate(v.begin(), v.end(), 0);
+    std::reverse(nums.begin(), nums.end());
 
-    cout << "Sum: " << total << endl;
-    cout << "Max: " << *max_element(v.begin(), v.end()) << endl;
-    cout << "Min: " << *min_element(v.begin(), v.end()) << endl;
+    int maxVal = *std::max_element(nums.begin(), nums.end());
+    int minVal = *std::min_element(nums.begin(), nums.end());
 
     return 0;
 }
@@ -856,88 +767,211 @@ int main() {
 
 ---
 
-## 14. Modern C++ (C++11/14/17/20)
+## 16. Exception Handling
 
-> **ខ្មែរ:** C++ version ថ្មីៗ (C++11, C++14, C++17, C++20) បន្ថែម features ថ្មីៗ ដែលធ្វើឲ្យ code ខ្លី ងាយ មានសុវត្ថិភាព ហើយ powerful ជាងមុន។
+```cpp
+#include <iostream>
+#include <stdexcept>
+
+double divide(double a, double b) {
+    if (b == 0) {
+        throw std::invalid_argument("Cannot divide by zero");
+    }
+    return a / b;
+}
+
+// Custom exception class
+class InsufficientFundsException : public std::runtime_error {
+public:
+    InsufficientFundsException(double balance, double amount)
+        : std::runtime_error("Cannot withdraw " + std::to_string(amount) +
+                              ", balance is only " + std::to_string(balance)) {}
+};
+
+double withdraw(double balance, double amount) {
+    if (amount > balance) {
+        throw InsufficientFundsException(balance, amount);
+    }
+    return balance - amount;
+}
+
+int main() {
+    // try / catch / finally-equivalent (C++ uses RAII instead of "finally")
+    try {
+        std::cout << divide(10, 0) << std::endl;
+    } catch (const std::invalid_argument &e) {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
+    // Catching multiple exception types
+    try {
+        withdraw(100, 150);
+    } catch (const InsufficientFundsException &e) {
+        std::cout << "Transaction failed: " << e.what() << std::endl;
+    } catch (const std::exception &e) {
+        // Catches any other standard exception
+        std::cout << "Unexpected error: " << e.what() << std::endl;
+    }
+
+    // catch(...) catches literally anything (use as a last resort)
+    try {
+        throw 42; // Can throw any type in C++, not just exceptions
+    } catch (...) {
+        std::cout << "Caught something!" << std::endl;
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 17. Smart Pointers & Memory Management
+
+Modern C++ (C++11+) strongly prefers **smart pointers** over raw `new`/`delete` — they automatically free memory when no longer needed, preventing leaks.
+
+```cpp
+#include <iostream>
+#include <memory>
+
+class Resource {
+public:
+    Resource() { std::cout << "Resource acquired" << std::endl; }
+    ~Resource() { std::cout << "Resource destroyed" << std::endl; }
+    void use() { std::cout << "Using resource" << std::endl; }
+};
+
+int main() {
+    // --- unique_ptr --- (exclusive ownership — only one pointer can own the resource)
+    {
+        std::unique_ptr<Resource> ptr1 = std::make_unique<Resource>();
+        ptr1->use();
+        // No need to call delete — automatically destroyed when ptr1 goes out of scope
+    } // "Resource destroyed" printed here automatically
+
+    // Transferring ownership (unique_ptr cannot be copied, only moved)
+    std::unique_ptr<Resource> ptr2 = std::make_unique<Resource>();
+    std::unique_ptr<Resource> ptr3 = std::move(ptr2); // Ownership moves to ptr3
+    // ptr2 is now nullptr; using it would be undefined behavior
+
+    // --- shared_ptr --- (shared ownership — reference-counted, freed when the last owner goes away)
+    std::shared_ptr<Resource> shared1 = std::make_shared<Resource>();
+    {
+        std::shared_ptr<Resource> shared2 = shared1; // Both now share ownership
+        std::cout << "Use count: " << shared1.use_count() << std::endl; // 2
+    } // shared2 goes out of scope, but the resource isn't destroyed yet (shared1 still owns it)
+    std::cout << "Use count: " << shared1.use_count() << std::endl; // 1
+
+    // --- weak_ptr --- (non-owning reference to a shared_ptr's resource — avoids circular references)
+    std::weak_ptr<Resource> weak1 = shared1;
+    if (auto locked = weak1.lock()) { // Must "lock" to safely access it
+        locked->use();
+    }
+
+    return 0;
+} // All remaining smart pointers automatically clean up here
+```
+
+**Rule of thumb:** Prefer `unique_ptr` by default; use `shared_ptr` only when multiple owners genuinely need to share a resource. Avoid raw `new`/`delete` in modern C++ code entirely when possible.
+
+---
+
+## 18. File I/O
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    // --- Writing to a file ---
+    std::ofstream outFile("notes.txt"); // ofstream = output file stream
+    if (outFile.is_open()) {
+        outFile << "Hello, file world!" << std::endl;
+        outFile << "Second line: " << 42 << std::endl;
+        outFile.close();
+    }
+
+    // --- Appending to a file ---
+    std::ofstream appendFile("notes.txt", std::ios::app);
+    if (appendFile.is_open()) {
+        appendFile << "Appended line." << std::endl;
+        appendFile.close();
+    }
+
+    // --- Reading a file line by line ---
+    std::ifstream inFile("notes.txt"); // ifstream = input file stream
+    if (inFile.is_open()) {
+        std::string line;
+        while (std::getline(inFile, line)) {
+            std::cout << line << std::endl;
+        }
+        inFile.close();
+    } else {
+        std::cout << "Unable to open file" << std::endl;
+    }
+
+    // --- Reading the whole file into a single string ---
+    std::ifstream file2("notes.txt");
+    std::string content((std::istreambuf_iterator<char>(file2)),
+                          std::istreambuf_iterator<char>());
+    std::cout << content << std::endl;
+
+    return 0;
+}
+```
+
+---
+
+## 19. Lambda Expressions
 
 ```cpp
 #include <iostream>
 #include <vector>
-#include <memory>
-#include <functional>
-#include <optional>
-#include <string_view>
-using namespace std;
+#include <algorithm>
 
 int main() {
-
-    // ———— Lambda Functions (C++11) ————
-    // ខ្មែរ: Lambda = anonymous function (function គ្មានឈ្មោះ)
-    auto greet = [](string name) {
-        cout << "Hello, " << name << "!" << endl;
+    // Basic lambda — [] captures nothing, () params, {} body
+    auto greet = []() {
+        std::cout << "Hello from a lambda!" << std::endl;
     };
-    greet("Dara");
+    greet();
 
-    // Lambda capture — ចាប់ variable ខាងក្រៅ
+    // Lambda with parameters and a return value
+    auto add = [](int a, int b) -> int {
+        return a + b;
+    };
+    std::cout << add(3, 4) << std::endl; // 7
+
+    // Capturing outer variables by value [=] or by reference [&]
     int multiplier = 3;
-    auto multiply = [multiplier](int x) { return x * multiplier; };
-    cout << multiply(7) << endl;  // 21
+    auto multiply = [multiplier](int n) { return n * multiplier; };
+    std::cout << multiply(5) << std::endl; // 15
 
-    // Lambda ជាមួយ STL
-    vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8};
-    // remove_if: ដក element ដែល even ចេញ
-    nums.erase(
-        remove_if(nums.begin(), nums.end(), [](int n) { return n % 2 == 0; }),
-        nums.end()
-    );
-    for (int n : nums) cout << n << " ";  // 1 3 5 7
-    cout << endl;
+    int counter = 0;
+    auto increment = [&counter]() { counter++; };
+    increment();
+    increment();
+    std::cout << counter << std::endl; // 2
 
-    // ———— Smart Pointers (C++11) ————
-    // ខ្មែរ: Smart pointer គ្រប់គ្រង memory ដោយស្វ័យប្រវត្តិ — no memory leaks!
+    // Using lambdas with STL algorithms (extremely common pattern)
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
 
-    // unique_ptr: owner តែម្នាក់
-    auto uptr = make_unique<int>(42);
-    cout << *uptr << endl;  // 42
-    // auto uptr2 = uptr;  // ❌ cannot copy unique_ptr
+    std::for_each(numbers.begin(), numbers.end(), [](int n) {
+        std::cout << n * n << " ";
+    });
+    std::cout << std::endl;
 
-    // shared_ptr: ownership ចែករំលែកបាន
-    auto sptr1 = make_shared<string>("Shared Resource");
-    auto sptr2 = sptr1;  // ✅ both share ownership
-    cout << *sptr1 << " | count: " << sptr1.use_count() << endl;  // count: 2
-
-    // ———— Structured Bindings (C++17) ————
-    // ខ្មែរ: unpack pair/tuple ឲ្យបានស្អាត
-    pair<string, int> student = {"Sophea", 95};
-    auto [name, score] = student;
-    cout << name << ": " << score << endl;
-
-    // ———— optional (C++17) ————
-    // ខ្មែរ: optional = value ដែលអាច exist ឬ not exist (better than returning -1)
-    auto findScore = [](string n) -> optional<int> {
-        if (n == "Dara") return 98;
-        return nullopt;  // not found
-    };
-
-    if (auto result = findScore("Dara")) {
-        cout << "Score: " << *result << endl;
-    }
-    if (!findScore("Unknown")) {
-        cout << "Student not found" << endl;
+    auto it = std::find_if(numbers.begin(), numbers.end(), [](int n) {
+        return n > 3;
+    });
+    if (it != numbers.end()) {
+        std::cout << "First number > 3: " << *it << std::endl;
     }
 
-    // ———— Range-based algorithms (C++20) ————
-    // ខ្មែរ: C++20 ranges ងាយ និង អាចបញ្ចូលគ្នា (chainable)
-    vector<int> data = {5, 2, 8, 1, 9, 3, 7, 4, 6};
-
-    // C++17 way:
-    sort(data.begin(), data.end());
-
-    // ———— constexpr (Compile-time computation) ————
-    constexpr int factorial(int n) {
-        return (n <= 1) ? 1 : n * factorial(n - 1);
-    }
-    // constexpr int result = factorial(5);  // computed at compile time!
+    std::sort(numbers.begin(), numbers.end(), [](int a, int b) {
+        return a > b; // Descending order
+    });
 
     return 0;
 }
@@ -945,76 +979,162 @@ int main() {
 
 ---
 
-## 🧠 Best Practices / គន្លឹះល្អ
+## 20. Best Practices
 
-> **ខ្មែរ:** ច្បាប់ល្អក្នុងការសរសេរ C++ ស្អាត មានសុវត្ថិភាព ហើយ maintain បានងាយ
+- ✅ Prefer `std::vector`/`std::array` over raw C-style arrays
+- ✅ Use smart pointers (`unique_ptr`, `shared_ptr`) instead of raw `new`/`delete`
+- ✅ Pass large objects by `const &` to avoid unnecessary copies
+- ✅ Mark member functions `const` when they don't modify the object's state
+- ✅ Use `override` when overriding virtual methods — catches typos at compile time
+- ✅ Prefer `auto` when the type is obvious from context, for readability
+- ✅ Use `nullptr` instead of `NULL` or `0` for pointers
+- ✅ Follow the **Rule of Three/Five**: if you define a destructor, copy constructor, or copy assignment operator, you likely need all of them (or explicitly delete them)
+- ✅ Enable warnings: compile with `-Wall -Wextra` and fix them
+- ✅ Prefer STL algorithms (`std::sort`, `std::find`) over hand-written loops when they exist
+
+---
+
+## 21. Full Example Project
+
+A simple **Inventory Management System** combining classes, STL containers, smart pointers, and exceptions:
 
 ```cpp
-// ✅ ល្អ — ប្រើ const ពេល variable មិនបំរែបំរួល
-const int MAX_STUDENTS = 50;
+// Item.h
+#ifndef ITEM_H
+#define ITEM_H
 
-// ✅ ល្អ — ប្រើ auto ពេល type ច្បាស់
-auto it = myMap.find("key");
+#include <string>
 
-// ✅ ល្អ — ប្រើ nullptr ជំនួស NULL
-int* ptr = nullptr;
+class Item {
+private:
+    std::string name;
+    double price;
+    int quantity;
 
-// ✅ ល្អ — ប្រើ Smart Pointers ជំនួស raw new/delete
-auto resource = make_unique<MyClass>();
+public:
+    Item(std::string name, double price, int quantity)
+        : name(name), price(price), quantity(quantity) {}
 
-// ✅ ល្អ — pass by const reference សម្រាប់ large objects
-void process(const vector<int>& data);
+    std::string getName() const { return name; }
+    double getPrice() const { return price; }
+    int getQuantity() const { return quantity; }
 
-// ✅ ល្អ — ប្រើ range-based for
-for (const auto& item : container) { ... }
+    void addStock(int amount) { quantity += amount; }
 
-// ✅ ល្អ — ប្រើ override keyword
-void myMethod() const override;
+    void removeStock(int amount) {
+        if (amount > quantity) {
+            throw std::runtime_error("Not enough stock for " + name);
+        }
+        quantity -= amount;
+    }
 
-// ❌ មិនល្អ — avoid raw pointer ដោយគ្មាន smart pointer
-// int* p = new int(5); // ងាយ memory leak
+    double totalValue() const { return price * quantity; }
+};
 
-// ❌ មិនល្អ — avoid magic numbers
-// if (score > 60) → ប្រើ const int PASSING_SCORE = 60;
+#endif
+```
+
+```cpp
+// Inventory.h
+#ifndef INVENTORY_H
+#define INVENTORY_H
+
+#include <vector>
+#include <memory>
+#include <string>
+#include <algorithm>
+#include <stdexcept>
+#include "Item.h"
+
+class Inventory {
+private:
+    std::vector<std::unique_ptr<Item>> items;
+
+public:
+    void addItem(const std::string &name, double price, int quantity) {
+        items.push_back(std::make_unique<Item>(name, price, quantity));
+    }
+
+    Item* findItem(const std::string &name) {
+        auto it = std::find_if(items.begin(), items.end(),
+            [&name](const std::unique_ptr<Item> &item) {
+                return item->getName() == name;
+            });
+
+        if (it == items.end()) {
+            throw std::runtime_error("Item not found: " + name);
+        }
+        return it->get();
+    }
+
+    double totalInventoryValue() const {
+        double total = 0;
+        for (const auto &item : items) {
+            total += item->totalValue();
+        }
+        return total;
+    }
+
+    void printInventory() const {
+        for (const auto &item : items) {
+            std::cout << item->getName() << ": " << item->getQuantity()
+                      << " units @ $" << item->getPrice() << std::endl;
+        }
+    }
+};
+
+#endif
+```
+
+```cpp
+// main.cpp
+#include <iostream>
+#include "Inventory.h"
+
+int main() {
+    Inventory inventory;
+
+    inventory.addItem("Laptop", 1200.00, 5);
+    inventory.addItem("Mouse", 25.00, 50);
+    inventory.addItem("Keyboard", 75.00, 30);
+
+    std::cout << "--- Inventory ---" << std::endl;
+    inventory.printInventory();
+
+    try {
+        Item *laptop = inventory.findItem("Laptop");
+        laptop->removeStock(2);
+        std::cout << "\nSold 2 laptops. Remaining: " << laptop->getQuantity() << std::endl;
+
+        inventory.findItem("Monitor"); // Throws — doesn't exist
+    } catch (const std::runtime_error &e) {
+        std::cout << "\nError: " << e.what() << std::endl;
+    }
+
+    std::cout << "\nTotal inventory value: $" << inventory.totalInventoryValue() << std::endl;
+
+    return 0;
+} // All unique_ptr items are automatically cleaned up here
+```
+
+```bash
+# Compile all files together
+g++ -std=c++20 main.cpp -o inventory_manager -Wall -Wextra
+
+# Run it
+./inventory_manager
 ```
 
 ---
 
-## 📚 ធនធានបន្ថែម / Resources
+## 22. Resources
 
-| ប្រភព / Source | លីង / Link | ភាសា |
-|---|---|---|
-| cppreference.com | [cppreference.com](https://cppreference.com) | English |
-| LearnCpp.com | [learncpp.com](https://www.learncpp.com) | English |
-| CppCoreGuidelines | [isocpp.github.io](https://isocpp.github.io/CppCoreGuidelines) | English |
-| Compiler Explorer | [godbolt.org](https://godbolt.org) | Online |
+- C++ reference: `https://en.cppreference.com/w/cpp`
+- ISO C++ official site: `https://isocpp.org/`
+- Learn C++ (tutorial site): `https://www.learncpp.com/`
 
 ---
 
-## 🗺️ ផ្លូវរៀន / Learning Roadmap
-
-```
-Beginner    ━━━━━━▶  Variables, Data Types, I/O
-               ▼
-Beginner+   ━━━━━━▶  Conditionals, Loops, Functions
-               ▼
-Intermediate━━━━━━▶  Arrays, Vectors, Pointers
-               ▼
-Intermediate+━━━━━▶  OOP (Class, Inheritance, Polymorphism)
-               ▼
-Advanced    ━━━━━━▶  Templates, STL, Exception Handling
-               ▼
-Advanced+   ━━━━━━▶  Modern C++11/17/20, Smart Pointers, Move Semantics
-               ▼
-Expert      ━━━━━━▶  Concurrency, Metaprogramming, Design Patterns
-```
-
----
-
-<div align="center">
-
-**🇰🇭 ធ្វើឡើងដោយ / Made with ❤️ in Cambodia**
-
-បើ Guide នេះមានប្រយោជន៍ — សូម ⭐ Star repository!
-
-</div>
+<p align="center">
+  Made with ❤️ for developers learning C++.
+</p>
